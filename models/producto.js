@@ -9,15 +9,23 @@ const productoSchema = Schema({
             type: String,
             required: [true, 'La descipcion es obligatoria']
         },
+        precio: {
+            type: Number,
+            required: [true, 'El precio es obligatorio']
+        },
         stock: {
             type: Number,
             required: [true, 'El stock es obligatorio']
+        },
+        vendido:{
+            type: Number,
+            required: [true, 'El numero de vendidos es obligatorio'],
+            default: 0
         },
         categoria: {
             type: Schema.Types.ObjectId,
             ref: 'Categoria',
             required: true,
-            default: 'productos varios'
         },
         estado: {
             type: Boolean,

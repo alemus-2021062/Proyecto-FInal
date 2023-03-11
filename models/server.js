@@ -7,7 +7,10 @@ class Server{
         this.app = express();
         this.port = process.env.PORT;
         this.categoriasPath = '/api/categorias'
-        this.usuariosPath = '/api/usuarios'
+        this.adminPath = '/api/admin'
+        this.clientPath = '/api/client'
+        this.carritoPath = '/api/carrito'
+        this.facturaPath = '/api/factura'
         this.productosPath = '/api/productos'
         this.authPath = '/api/auth'
 
@@ -33,9 +36,12 @@ class Server{
 
     routes(){
         this.app.use(this.categoriasPath, require('../routes/categoria'));
-        this.app.use(this.usuariosPath, require('../routes/usuario'));
+        this.app.use(this.adminPath, require('../routes/admin'));
+        this.app.use(this.clientPath, require('../routes/client'));
         this.app.use(this.productosPath , require('../routes/producto'));
         this.app.use(this.authPath, require('../routes/auth'));
+        this.app.use(this.carritoPath, require('../routes/carrito')),
+        this.app.use(this.facturaPath, require('../routes/factura'))
     }
 
     listen(){

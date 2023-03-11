@@ -1,6 +1,6 @@
 const Producto = require('../models/producto');
 const Role = require('../models/role');
-const Usuario = require('../models/usuario');
+const Admin = require('../models/usuario');
 
 const esRoleValido = async(rol = '') =>{
     const existeRol = await Role.findOne( { rol } );
@@ -13,7 +13,7 @@ const esRoleValido = async(rol = '') =>{
 const emailExiste = async( correo = '' ) => {
 
     //Verificamos si el correo ya existe en la DB
-    const existeEmail = await Usuario.findOne( { correo } );
+    const existeEmail = await Admin.findOne( { correo } );
 
     //Si existe (es true) lanzamos excepción
     if ( existeEmail ) {
@@ -44,10 +44,10 @@ const existeCategoriaPorId = async(id) => {
 
 }
 
-const existeUsuarioPorId = async(id) => {
+const existeAdminPorId = async(id) => {
 
     //Verificar si el ID existe
-    const existeUsuario = await Usuario.findById(id);
+    const existeUsuario = await Admin.findById(id);
 
     if ( !existeUser ) {
         throw new Error(`El id ${ id } no existe en la DB`);
@@ -55,10 +55,11 @@ const existeUsuarioPorId = async(id) => {
 
 }
 
+
 module.exports = {
     esRoleValido,
     emailExiste,
     existeProductoPorId,
     existeCategoriaPorId,
-    existeUsuarioPorId
+    existeAdminPorId
 }

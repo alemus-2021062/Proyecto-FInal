@@ -1,5 +1,6 @@
 const {response, request} = require('express');
 const Categoria = require('../models/categoria');
+const Producto = require('../models/producto');
 
 
 const getCategorias = async(req = request, res = response) =>{
@@ -35,7 +36,7 @@ const putCategorias = async(req = request, res = response) =>{
     const {id} = req.params;
     const{_id, img, estado, ...resto} = req.body;
 
-    const categoriaEditada = await Categoria.findByIdAndUpdate(id, resto);
+    const categoriaEditada = await Categoria.findByIdAndUpdate(id, resto, {new:true});
 
     res.json({
         msg: 'Categoria modificada',
@@ -46,8 +47,7 @@ const putCategorias = async(req = request, res = response) =>{
 
 const deleteCategorias = async(req = request, res = response) =>{
     const {id} = req.params;
-    const categoriaEliminada = await Categoria.findByIdAndDelete(id);
-
+    const categoriaEliminada = await Categoria.findByIdAndDelete(id, {new:true});
     res.json({
         msg: 'Categoria Eliminada',
         categoriaEliminada

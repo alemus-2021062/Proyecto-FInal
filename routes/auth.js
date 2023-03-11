@@ -10,4 +10,10 @@ router.post('/login' ,[
     validarCampos
 ], login)
 
+router.post('/login/cliente' ,[
+    check('correo', 'El correo no es valido').isEmail(),
+    check('password', 'El password es obligatorio').not().isEmpty(),
+    validarCampos
+], login)
+
 module.exports = router;

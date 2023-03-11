@@ -12,26 +12,11 @@ Para instalar los modulos de node ejecutar el comando
 npm install
 -----------
 
+----------------------------------------------------------
+para correr el servidor poner el comando
+-----------------------------------------------------------
 
+---------------------
+npm run dev
+---------------------
 
-
-
-
-agregar
-{
-    "nombre": "gorras",
-    "tipoCategoria": "Ropa",
-    "descripcion": "Gorras de diferentes estilos y tamaños"
-}
-{
-    "nombre": "camisas",
-    "tipoCategoria": "Ropa",
-    "descripcion": "camisas de todos los colores y tallas"
-}
-
-editar
-{
-    "nombre": "pantalonetas",
-    "tipoCategoria": "Ropa",
-    "descripcion": "Pantalonetas de todo tipo de tallas para hombre y mujer"
-}
